@@ -45,4 +45,19 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function albums(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Album::class);
+    }
+
+    public function photos()
+    {
+        return $this->hasManyThrough(Photo::class, Album::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
