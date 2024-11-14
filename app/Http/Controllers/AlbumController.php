@@ -15,9 +15,9 @@ class AlbumController extends Controller
      */
     public function index()
     {
-        $albums = Auth::user()->albums(); // Récupère les albums de l'utilisateur connecté
+        $albums = Album::all() ;
         return Inertia::render('Albums/Index', [
-            'albums' => $albums, // Passe les albums à la vue Inertia
+            'albums' => $albums,
         ]);
     }
 
@@ -37,13 +37,15 @@ class AlbumController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'nullable|string|max:1000',
+            'is_private' => 'boolean',
         ]);
 
-        $album = new Album();
-        $album->title = $request->title;
-        $album->description = $request->description;
-        $album->user_id = Auth::id(); // Associe l'album à l'utilisateur authentifié
-        $album->save();
+        Album::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'user_id' => auth()->id(),
+            'is_private' => $request->is_private ?? false
+        ]);
 
         return redirect()->route('albums.index')->with('success', 'Album créé avec succès!');
     }
