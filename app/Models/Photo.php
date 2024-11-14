@@ -18,6 +18,6 @@ class Photo extends Model
 
     public function album()
     {
-        return $this->belongsTo(Album::class)
+        return $this->belongsTo(Album::class);
     }
 }
