@@ -39,6 +39,19 @@ const showingNavigationDropdown = ref(false);
                                 >
                                     Dashboard
                                 </NavLink>
+                                <NavLink
+                                    :href="route('albums.index')"
+                                    :active="route().current('albums.index')"
+                                >
+                                    Albums
+                                </NavLink>
+                                <NavLink
+                                    :href="route('albums.create')"
+                                    :active="route().current('albums.create')"
+                                >
+                                    Nouvel Album
+                                </NavLink>
+
                             </div>
                         </div>
 
@@ -145,6 +158,18 @@ const showingNavigationDropdown = ref(false);
                             :active="route().current('dashboard')"
                         >
                             Dashboard
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                            :href="route('albums.index')"
+                            :active="route().current('albums.index')"
+                        >
+                            Albums
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                            :href="route('albums.create')"
+                            :active="route().current('albums.create')"
+                        >
+                            Nouvel album
                         </ResponsiveNavLink>
                     </div>
 

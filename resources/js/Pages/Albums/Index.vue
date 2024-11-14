@@ -3,22 +3,32 @@
 
     <AuthenticatedLayout>
         <template #header>
-            <h2
-                class="text-xl font-semibold leading-tight text-gray-800"
-            >
+            <h1 class="text-xl font-semibold leading-tight text-gray-800">
                 Albums
-            </h2>
+            </h1>
         </template>
         <div>
-            <h1>Mes Albums</h1>
             <ul>
-                <li v-for="album in albums" :key="album.id">
-                    <Link :href="route('albums.show', album.id)"
-                        >{{ album.title }}
+                <li v-for="album in albums" :key="album.id" class="p-8">
+                    <h2>{{ album.title }}</h2>
+                    <p>
+                        crée par:
+                        <span class="text-purple-700">
+                            {{ album.user.name }}
+                        </span>
+                        le:
+                        <span class="text-purple-700">
+                            {{ new Date(album.created_at).toDateString() }}
+                        </span>
+
+                    </p>
+                    <Link
+                        :href="route('albums.show', album.id)"
+                        class="font-bold text-pink-500 hover:text-purple-700"
+                        >voir l'album
                     </Link>
                 </li>
             </ul>
-            <Link :href="route('albums.create')">Créer un album</Link>
         </div>
     </AuthenticatedLayout>
 </template>

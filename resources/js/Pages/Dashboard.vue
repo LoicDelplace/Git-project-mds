@@ -1,6 +1,6 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import { Head } from '@inertiajs/vue3';
+import { Head, Link } from '@inertiajs/vue3';
 </script>
 
 <template>
@@ -21,7 +21,8 @@ import { Head } from '@inertiajs/vue3';
                     class="overflow-hidden bg-white shadow-sm sm:rounded-lg"
                 >
                     <div class="p-6 text-gray-900">
-                        You're logged in!
+                        <p>Vous êtes connecté!</p>
+                        <Link :href="route('albums.index')" class="text-pink-500 underline hover:text-purple-700 font-bold"> Accéder à la liste des albums</Link>
                     </div>
                 </div>
             </div>

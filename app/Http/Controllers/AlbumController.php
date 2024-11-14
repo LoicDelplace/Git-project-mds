@@ -15,7 +15,7 @@ class AlbumController extends Controller
      */
     public function index()
     {
-        $albums = Album::all() ;
+        $albums = Album::with('user', 'photos')->get(); ;
         return Inertia::render('Albums/Index', [
             'albums' => $albums,
         ]);
