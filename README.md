@@ -13,14 +13,16 @@ Git Flow est un workflow de développement basé sur des branches pour garantir 
 - **`main`** : Branche principale contenant le code en production. Seules des versions stables et finalisées y sont fusionnées.
 - **`develop`** : Branche de développement. Toutes les fonctionnalités terminées et validées sont fusionnées ici pour les tests.
 - **`feature/`** : Branche pour développer une nouvelle fonctionnalité. Chaque nouvelle fonctionnalité est créée à partir de `develop`.
+- **`bugfix/`** : Branche pour corriger des bugs apparus lors du developpement. Créée à partir de `develop`.
 - **`hotfix/`** : Branche pour corriger des bugs critiques apparus en production. Créée à partir de `main`.
 - **`release/`** : Branche pour préparer une version finale. Une fois prête, elle est fusionnée dans `main` et `develop`.
 
 ### 🗂 Structure des branches
 - **`main`** : Contient le code de production.
 - **`develop`** : Contient le code de développement stable.
-- **`feature/nom-de-la-feature`** : Pour les nouvelles fonctionnalités (ex. `feature/ajout-connexion`).
-- **`hotfix/description-du-bug`** : Pour corriger les bugs critiques (ex. `hotfix/correction-erreur-connexion`).
+- **`feature/nom-de-la-feature`** : Pour les nouvelles fonctionnalités (ex. `feature/create-dashboard-component`).
+- **`bugfix/description-du-bug`** : Pour corriger les bugs lors du developpement (ex. `bugfix/fix-error`).
+- **`hotfix/description-du-bug`** : Pour corriger les bugs critiques (ex. `hotfix/fix-auth-error`).
 - **`release/numero-de-version`** : Préparation d'une nouvelle version stable (ex. `release/v1.0.0`).
 
 ## 🏥 Nos problèmes rencontrés
